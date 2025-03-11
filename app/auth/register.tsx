@@ -24,13 +24,15 @@ const SignIn = () => {
         <Text style={tw`text-white`}>Lupa password?</Text>
       </View>
     </View>
-    <View style={tw`mt-5`}>
+    <View style={tw`mt-5 justify-center items-center`}>
       <Button title="Masuk" bgbtn="[#4285F4]" bgtext="black" rute="auth/signin"/>
     </View>
    
     <View style={tw`bg-white w-full h-0.5 mt-7`}></View>
+    <View style={tw`justify-center items-center mr-3`}>
     <Metode img={require('@/assets/images/ggl.jpg')}   title="Masuk Dengan Google" rute="auth/signin"/>
     <Metode img={require('@/assets/images/fb.jpg')}   title="Masuk Dengan Google" rute="auth/signin"/>
+    </View>
     </SafeAreaView>
     </View>
   )

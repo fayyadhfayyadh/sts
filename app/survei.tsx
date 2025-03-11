@@ -1,20 +1,39 @@
-import { View, Text, Image, } from 'react-native'
-import React from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import tw from 'twrnc'
-import Button from '@/components/button'
+import Button from "@/components/button";
+import React, { useState } from "react";
+import { View, Text, TouchableOpacity } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import tw from "twrnc";
 
-const index = ({}) => {
+const options = ["Co-Founders", "Instagram", "Tiktok", "Youtube", "Website", "Lainnya"];
+
+const SurveyScreen = () => {
+  const [selected, setSelected] = useState<string | null>(null);
+
   return (
-    
-    <View style={tw`bg-black flex-1 px-3`}>
+    <SafeAreaView style={tw`flex-1 bg-black p-4`}>
+      <Text style={tw`text-white text-lg mb-4`}>
+        Bagaimana kamu tahu tentang Techxperience?
+      </Text>
+      <View style={tw`gap-2`}>
+        {options.map((item) => (
+          <TouchableOpacity
+            key={item}
+            style={[
+              tw`p-4 rounded-lg`,
+              selected === item ? tw`bg-gray-700` : tw`bg-gray-900`,
+            ]}
+            onPress={() => setSelected(item)}
+          >
+            <Text style={tw`text-white text-lg text-center`}>{item}</Text>
+          </TouchableOpacity>
+        ))}
 
-    <SafeAreaView style={tw`justify-center items-center`}>
-    <Image style={tw`w-55 h-10 mt-5`} source={require('@/assets/images/lg.png')} />
-      </SafeAreaView>
+    <View style={tw`mt-50 justify-center items-center`}>
+      <Button title="Selanjutnya" bgbtn="[#4285F4]" bgtext="black" rute="home"/>
     </View>
-    
-  )
-}
+      </View>
+    </SafeAreaView>
+  );
+};
 
-export default index
+export default SurveyScreen;
